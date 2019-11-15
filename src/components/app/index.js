@@ -4,7 +4,8 @@ import { SpotLight } from "../lights";
 import Ground from "../ground";
 import Block from "../block";
 import Camera from "../camera";
-import Tile from "../tile";
+import Grid from "../grid";
+import { TILE_SIZE } from "../../constants";
 
 const App = () => (
   <Canvas>
@@ -12,8 +13,10 @@ const App = () => (
     <SpotLight />
     <Camera />
     <Ground />
-    <Block />
-    <Tile x={1} y={1} />
+    <Grid width={6} height={6} x={-2.5 * TILE_SIZE} y={-2.5 * TILE_SIZE} />
+    <Block
+      position={[-2.5 * TILE_SIZE - TILE_SIZE, -2.5 * TILE_SIZE - TILE_SIZE, 0]}
+    />
   </Canvas>
 );
 

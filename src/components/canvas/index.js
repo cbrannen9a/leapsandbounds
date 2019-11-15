@@ -1,8 +1,9 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
 import * as THREE from "three";
+import { START_CAMERA_POS } from "../../constants";
 
-const LPCanvas = ({ children, camera = { position: [0, -4, 5] } }) => {
+const LPCanvas = ({ children, camera = { position: START_CAMERA_POS } }) => {
   return (
     <Canvas
       style={{ background: "lightblue" }}
