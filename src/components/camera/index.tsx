@@ -10,7 +10,7 @@ const Camera = () => {
 
   useRender(() => {
     orbitRef.current.update();
-  });
+  }, false);
 
   return (
     <orbitControls
