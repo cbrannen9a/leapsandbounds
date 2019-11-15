@@ -5,7 +5,7 @@ import Level from "../level";
 const App = () => (
   <Canvas>
     <ambientLight />
-    <Level level={{ size: 8, blocks: [{}] }} />
+    <Level level={{ size: 8, blocks: [] }} />
   </Canvas>
 );
 

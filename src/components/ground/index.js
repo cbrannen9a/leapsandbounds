@@ -1,5 +1,5 @@
 import React from "react";
-import { GROUND_POS_OFFSET } from "../../constants";
+import { GROUND_POS_OFFSET, GEOMETRY, MATERIAL } from "../../constants";
 
 const Ground = ({
   position = [0, 0],
@@ -10,8 +10,8 @@ const Ground = ({
   const pos = [position[0], position[1], GROUND_POS_OFFSET];
   return (
     <mesh position={pos} rotation={rotation} receiveShadow>
-      <planeBufferGeometry attach="geometry" args={size} />
-      <meshPhongMaterial attach="material" color={color} />
+      <planeBufferGeometry attach={GEOMETRY} args={size} />
+      <meshPhongMaterial attach={MATERIAL} color={color} />
     </mesh>
   );
 };

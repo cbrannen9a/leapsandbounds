@@ -5,6 +5,7 @@ import Ground from "../ground";
 import Grid from "../grid";
 import { TILE_SIZE } from "../../constants";
 import Block from "../block";
+import Endpoint from "../endpoint";
 
 const Level = ({ level = { size: 7, blocks: [] } }) => {
   const groundSize = level.size * TILE_SIZE;
@@ -26,6 +27,7 @@ const Level = ({ level = { size: 7, blocks: [] } }) => {
       {level.blocks.map(block => (
         <Block {...block} />
       ))}
+      <Endpoint />
     </>
   );
 };

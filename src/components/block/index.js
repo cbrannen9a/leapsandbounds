@@ -1,4 +1,5 @@
 import React from "react";
+import { GEOMETRY, MATERIAL } from "../../constants";
 
 const Block = ({
   position = [0, 0, 0],
@@ -8,8 +9,8 @@ const Block = ({
 }) => {
   return (
     <mesh rotation={rotation} castShadow position={position}>
-      <boxBufferGeometry attach="geometry" args={size} />
-      <meshBasicMaterial attach="material" color={colour} />
+      <boxBufferGeometry attach={GEOMETRY} args={size} />
+      <meshBasicMaterial attach={MATERIAL} color={colour} />
     </mesh>
   );
 };
