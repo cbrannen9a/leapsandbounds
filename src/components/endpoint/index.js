@@ -1,5 +1,10 @@
 import React from "react";
-import { GEOMETRY, MATERIAL, TILE_SIZE } from "../../constants";
+import {
+  GEOMETRY,
+  MATERIAL,
+  TILE_SIZE,
+  ENDPOINT_Z_OFFSET
+} from "../../constants";
 
 const Disc = ({
   position = [0, 0, 0],
@@ -18,10 +23,11 @@ const Disc = ({
 const Endpoint = ({
   x = 0,
   y = 0,
+  z = 0,
   size = [TILE_SIZE * 0.35, TILE_SIZE * 0.45],
   colour = "red"
 }) => {
-  const position = [x, y, -0.45];
+  const position = [x, y, z + ENDPOINT_Z_OFFSET];
   return (
     <>
       <Disc position={position} size={size} colour="red" />

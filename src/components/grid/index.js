@@ -7,6 +7,7 @@ const Grid = ({
   height = 1,
   x = 0,
   y = 0,
+  z = 0,
   tilesize = TILE_SIZE,
   spacer = TILE_SIZE_SPACER
 }) => {
@@ -24,7 +25,8 @@ const Grid = ({
           key={`${xpos}+${ypos}`}
           x={xpos}
           y={ypos}
-          size={[tilesize - spacer, tilesize - spacer]}
+          z={z}
+          size={tilesize - spacer}
         />
       );
     }
