@@ -16,26 +16,17 @@ const Disc = ({
 };
 
 const Endpoint = ({
-  position = [0, 0, -0.45],
-  rotation = [0, 0, 0],
+  x = 0,
+  y = 0,
   size = [TILE_SIZE * 0.35, TILE_SIZE * 0.45],
   colour = "red"
 }) => {
+  const position = [x, y, -0.45];
   return (
     <>
-      <Disc position={position} rotation={rotation} size={size} colour="red" />
-      <Disc
-        position={position}
-        rotation={rotation}
-        size={size.map(p => p * 0.75)}
-        colour="blue"
-      />
-      <Disc
-        position={position}
-        rotation={rotation}
-        size={size.map(p => p * 0.5)}
-        colour="white"
-      />
+      <Disc position={position} size={size} colour="red" />
+      <Disc position={position} size={size.map(p => p * 0.75)} colour="blue" />
+      <Disc position={position} size={size.map(p => p * 0.5)} colour="white" />
     </>
   );
 };
