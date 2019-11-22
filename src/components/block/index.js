@@ -1,10 +1,10 @@
 import React from "react";
-import { GEOMETRY, MATERIAL } from "../../constants";
+import { GEOMETRY, MATERIAL, TILE_SIZE } from "../../constants";
 
 const Block = ({
   position = [0, 0, 0],
   rotation = [0, 0, 0],
-  size = [0.25, 0.25, 0.25],
+  size = [TILE_SIZE, TILE_SIZE, TILE_SIZE],
   colour = "red"
 }) => {
   return (

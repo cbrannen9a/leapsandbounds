@@ -1,6 +1,6 @@
 import React from "react";
 import Tile from "../tile";
-import { TILE_SIZE } from "../../constants";
+import { TILE_SIZE, TILE_SIZE_SPACER } from "../../constants";
 
 const Grid = ({
   width = 1,
@@ -8,7 +8,7 @@ const Grid = ({
   x = 0,
   y = 0,
   tilesize = TILE_SIZE,
-  spacer = 0.015
+  spacer = TILE_SIZE_SPACER
 }) => {
   let grid = new Array(height);
 
