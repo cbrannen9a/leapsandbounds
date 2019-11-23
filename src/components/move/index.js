@@ -24,7 +24,11 @@ const Move = ({ x = 0, y = 0, shape = [], rotation = "" }) => {
     <>
       {shape.length > 0
         ? MoveHelper({ shape, x, y, rotation }).map((shapeitem, i) => (
-            <MoveTile {...shapeitem} colour={i === 0 ? "yellow" : "green"} />
+            <MoveTile
+              key={i}
+              {...shapeitem}
+              colour={i === 0 ? "yellow" : "green"}
+            />
           ))
         : null}
     </>
