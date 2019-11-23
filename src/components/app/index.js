@@ -12,7 +12,7 @@ const App = () => (
       level={{
         layers: [
           { x: 0, y: 0, z: 0, size: 8, blocks: [], endpoint: { x: -3, y: 3 } },
-          { x: 4, y: 3, z: 2, size: 4, blocks: [], endpoint: { x: 1, y: 1 } }
+          { x: 4, y: 3, z: 2, size: 4, blocks: [], endpoint: { x: 1, y: 0 } }
         ]
       }}
     />

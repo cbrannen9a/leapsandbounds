@@ -34,8 +34,8 @@ const Layer = ({ layer }) => {
       <Endpoint
         {...EndpointPositionHelper({
           endpoint: layer.endpoint,
-          x: layerx,
-          y: layery
+          x: layer.x,
+          y: layer.y
         })}
         z={layerz}
       />
