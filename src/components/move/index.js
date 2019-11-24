@@ -6,22 +6,23 @@ import { MoveHelper } from "../../helpers/moveHelpers";
 const MoveTile = ({
   x = 0,
   y = 0,
-  size = [TILE_SIZE, TILE_SIZE],
+  z,
+  size = TILE_SIZE,
   height = 0.01,
   colour = "green",
   onClick
 }) => {
   return (
     <Block
-      position={[x, y, MOVE_POS_Z_OFFSET]}
-      size={[size[0], size[1], height]}
+      position={[x, y, z]}
+      size={[size, size, height]}
       colour={colour}
       onClick={onClick}
     />
   );
 };
 
-const Move = ({ x = 0, y = 0, shape = [], rotation = "", onClick }) => {
+const Move = ({ x = 0, y = 0, z = 0, shape = [], rotation = "", onClick }) => {
   return (
     <>
       {shape.length > 0
@@ -30,6 +31,7 @@ const Move = ({ x = 0, y = 0, shape = [], rotation = "", onClick }) => {
               key={i}
               onClick={onClick}
               {...shapeitem}
+              z={z + MOVE_POS_Z_OFFSET}
               colour={i === 0 ? "yellow" : "green"}
             />
           ))

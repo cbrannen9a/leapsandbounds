@@ -3,7 +3,7 @@ import { Canvas } from "react-three-fiber";
 import styled from "styled-components";
 import Move from "../move";
 
-const MovesContainer = ({ moves }) => {
+const MovesContainer = ({ moves, onClick }) => {
   return (
     <Container>
       <Canvas>
@@ -13,7 +13,7 @@ const MovesContainer = ({ moves }) => {
               key={i}
               {...move}
               x={5 * (i - moves.length / 2)}
-              onClick={() => console.log({ i })}
+              onClick={() => onClick(i)}
             />
           ))}
       </Canvas>

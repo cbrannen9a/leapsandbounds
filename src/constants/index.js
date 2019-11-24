@@ -5,7 +5,7 @@ export const GROUND_HEIGHT = 0.04;
 export const ENDPOINT_Z_OFFSET = 0.45;
 export const TILE_POS_Z_OFFSET = -0.05;
 export const TILE_HEIGHT = 0.05;
-export const MOVE_POS_Z_OFFSET = TILE_POS_Z_OFFSET + 0.05;
+export const MOVE_POS_Z_OFFSET = 0.03;
 export const START_CAMERA_POS = [0, -0.5, TILE_SIZE * 7];
 
 export const GEOMETRY = "geometry";

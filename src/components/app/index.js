@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Canvas from "../canvas";
 import Level from "../level";
 import MovesContainer from "../movesContainer";
+import Player from "../player";
 
 const App = () => {
   const level = {
@@ -15,6 +16,9 @@ const App = () => {
         endpoint: { x: -3, y: 3 }
       }
     ],
+    player: {
+      startpoint: { layer: 0, x: 0, y: -1 }
+    },
     moves: [
       {
         shape: [
@@ -32,13 +36,17 @@ const App = () => {
       }
     ]
   };
+
+  const [selectedMove, setSelectedMove] = useState(null);
+
   return (
     <>
       <Canvas>
         <ambientLight />
         <Level level={level} />
+        <Player level={level} selectedMove={selectedMove} />
       </Canvas>
-      <MovesContainer moves={level.moves} />
+      <MovesContainer moves={level.moves} onClick={setSelectedMove} />
     </>
   );
 };

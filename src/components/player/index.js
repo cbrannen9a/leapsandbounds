@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { GEOMETRY, MATERIAL } from "../../constants";
+import Move from "../move";
 
 const Player = ({
-  position = [1, 1, 0],
+  position,
   rotation = [0, 0, 0],
   size = [1, 1, 1],
-  colour = "blue"
+  colour = "blue",
+  level,
+  selectedMove
 }) => {
+  const { player } = level;
+  const [playerPosition, setPlayerPosition] = useState(
+    position || [player.startpoint.x, player.startpoint.y, 0.5]
+  );
+
   return (
-    <mesh rotation={rotation} castShadow position={position}>
-      <boxBufferGeometry attach={GEOMETRY} args={size} />
-      <meshBasicMaterial attach={MATERIAL} color={colour} />
-    </mesh>
+    <>
+      <mesh rotation={rotation} castShadow position={playerPosition}>
+        <boxBufferGeometry attach={GEOMETRY} args={size} />
+        <meshBasicMaterial attach={MATERIAL} color={colour} />
+      </mesh>
+      {selectedMove !== null && (
+        <Move
+          shape={level.moves[selectedMove].shape}
+          x={playerPosition[0]}
+          y={playerPosition[1]}
+        />
+      )}
+    </>
   );
 };
 
