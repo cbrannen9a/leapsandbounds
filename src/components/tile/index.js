@@ -1,6 +1,7 @@
 import React from "react";
 import Block from "../block";
 import { TILE_SIZE, TILE_HEIGHT } from "../../constants";
+import { TILE_BROWN } from "../../constants/colours";
 
 const Tile = ({
   x = 0,
@@ -8,7 +9,7 @@ const Tile = ({
   z = 0,
   size = TILE_SIZE,
   height = TILE_HEIGHT,
-  colour = "brown"
+  colour = TILE_BROWN
 }) => {
   return (
     <Block position={[x, y, z]} size={[size, size, height]} colour={colour} />

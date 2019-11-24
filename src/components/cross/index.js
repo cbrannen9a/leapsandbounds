@@ -2,6 +2,7 @@ import React from "react";
 import Block from "../block";
 import { TILE_SIZE } from "../../constants";
 import { MovePositionHelper } from "../../helpers/moveHelpers";
+import { CROSS_RED } from "../../constants/colours";
 
 const crossShape = [
   { x: 1, y: 0 },
@@ -16,7 +17,7 @@ const CrossTile = ({
   z = 0,
   size = TILE_SIZE,
   height = 0.01,
-  colour = "red",
+  colour = CROSS_RED,
   onClick
 }) => {
   return (

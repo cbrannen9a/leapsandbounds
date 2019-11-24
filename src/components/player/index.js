@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { GEOMETRY, MATERIAL } from "../../constants";
 import Move from "../move";
+import { PLAYER_BLUE } from "../../constants/colours";
 
 const Player = ({
   position,
   rotation = [0, 0, 0],
   size = [1, 1, 1],
-  colour = "blue",
+  colour = PLAYER_BLUE,
   level,
   selectedMove,
   selectedMoveRotation
@@ -25,9 +26,12 @@ const Player = ({
       {selectedMove !== null && (
         <Move
           shape={level.moves[selectedMove].shape}
+          end={level.moves[selectedMove].end}
           x={playerPosition[0]}
           y={playerPosition[1]}
           rotation={selectedMoveRotation}
+          layerSize={level.layers[0].size}
+          selected
         />
       )}
     </>

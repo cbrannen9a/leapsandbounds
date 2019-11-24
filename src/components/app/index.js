@@ -6,6 +6,7 @@ import Player from "../player";
 import useKeyPress from "../../hooks/useKeyPress";
 import useMultiKeyPress from "../../hooks/useMultiKeyPress";
 import { ROTATION } from "../../constants";
+import { ParsedError } from "pretty-error";
 
 const App = () => {
   const level = {
@@ -20,7 +21,7 @@ const App = () => {
       }
     ],
     player: {
-      startpoint: { layer: 0, x: 0, y: -1 }
+      startpoint: { layer: 0, x: 0, y: -3 }
     },
     moves: [
       {
@@ -28,14 +29,22 @@ const App = () => {
           { x: 1, y: 0 },
           { x: 1, y: 1 },
           { x: 2, y: 1 }
-        ]
+        ],
+        end: {
+          x: 2,
+          y: 1
+        }
       },
       {
         shape: [
           { x: 0, y: 1 },
           { x: 1, y: 1 },
           { x: 1, y: 2 }
-        ]
+        ],
+        end: {
+          x: 1,
+          y: 2
+        }
       }
     ]
   };
@@ -61,6 +70,9 @@ const App = () => {
       }
       if (keysPressed.has("ArrowLeft")) {
         setMoveRotation(prev => (prev + 3) % 4);
+      }
+      if (keysPressed.has("1")) {
+        setSelectedMove(0);
       }
     }
     handleKeysPressed(keysPressed);

@@ -1,5 +1,6 @@
 import React from "react";
 import { GEOMETRY, MATERIAL, TILE_SIZE } from "../../constants";
+import { BLOCK_RED } from "../../constants/colours";
 
 const Block = ({
   position = [0, 0, 0],
@@ -7,7 +8,7 @@ const Block = ({
   scale = [1, 1, 1],
   size = [TILE_SIZE, TILE_SIZE, TILE_SIZE],
   onClick,
-  colour = "red"
+  colour = BLOCK_RED
 }) => {
   return (
     <mesh
@@ -18,7 +19,7 @@ const Block = ({
       onClick={onClick}
     >
       <boxBufferGeometry attach={GEOMETRY} args={size} />
-      <meshBasicMaterial attach={MATERIAL} color={colour} />
+      <meshPhysicalMaterial attach={MATERIAL} color={colour} />
     </mesh>
   );
 };

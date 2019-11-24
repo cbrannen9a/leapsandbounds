@@ -8,6 +8,7 @@ const MovesContainer = ({ moves, onClick }) => {
   return (
     <Container>
       <Canvas>
+        <ambientLight intensity={2} />
         {moves &&
           moves.map((move, i) => (
             <Move
@@ -20,6 +21,7 @@ const MovesContainer = ({ moves, onClick }) => {
       </Canvas>
       <BottomRight>
         <Canvas>
+          <ambientLight intensity={2} />
           <Cross onClick={() => onClick(null)} />
         </Canvas>
       </BottomRight>
