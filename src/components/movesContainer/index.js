@@ -13,7 +13,7 @@ const MovesContainer = ({ moves, onClick }) => {
             <Move
               key={i}
               {...move}
-              x={5 * (i - moves.length / 2)}
+              x={5 * (i - moves.length / 2) + 1}
               onClick={() => onClick(i)}
             />
           ))}
