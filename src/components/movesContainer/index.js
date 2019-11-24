@@ -9,7 +9,7 @@ const MovesContainer = ({ moves }) => {
       <Canvas>
         {moves &&
           moves.map((move, i) => (
-            <Move key={i} {...move} x={i * 2 * move.shape.length} />
+            <Move key={i} {...move} x={5 * (i - moves.length / 2)} />
           ))}
       </Canvas>
     </Container>
@@ -22,10 +22,6 @@ const Container = styled.div`
   height: 100px;
   width: 100vw;
   background: black;
-  & > div {
-    height: 100%;
-    background: indianred;
-  }
 
   @media only screen and (max-width: 900px) {
     height: 40px;
