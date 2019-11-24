@@ -9,7 +9,12 @@ const MovesContainer = ({ moves }) => {
       <Canvas>
         {moves &&
           moves.map((move, i) => (
-            <Move key={i} {...move} x={5 * (i - moves.length / 2)} />
+            <Move
+              key={i}
+              {...move}
+              x={5 * (i - moves.length / 2)}
+              onClick={() => console.log({ i })}
+            />
           ))}
       </Canvas>
     </Container>

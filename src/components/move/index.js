@@ -8,24 +8,27 @@ const MoveTile = ({
   y = 0,
   size = [TILE_SIZE, TILE_SIZE],
   height = 0.01,
-  colour = "green"
+  colour = "green",
+  onClick
 }) => {
   return (
     <Block
       position={[x, y, MOVE_POS_Z_OFFSET]}
       size={[size[0], size[1], height]}
       colour={colour}
+      onClick={onClick}
     />
   );
 };
 
-const Move = ({ x = 0, y = 0, shape = [], rotation = "" }) => {
+const Move = ({ x = 0, y = 0, shape = [], rotation = "", onClick }) => {
   return (
     <>
       {shape.length > 0
         ? MoveHelper({ shape, x, y, rotation }).map((shapeitem, i) => (
             <MoveTile
               key={i}
+              onClick={onClick}
               {...shapeitem}
               colour={i === 0 ? "yellow" : "green"}
             />

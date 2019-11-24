@@ -6,10 +6,17 @@ const Block = ({
   rotation = [0, 0, 0],
   scale = [1, 1, 1],
   size = [TILE_SIZE, TILE_SIZE, TILE_SIZE],
+  onClick,
   colour = "red"
 }) => {
   return (
-    <mesh rotation={rotation} castShadow position={position} scale={scale}>
+    <mesh
+      rotation={rotation}
+      castShadow
+      position={position}
+      scale={scale}
+      onClick={onClick}
+    >
       <boxBufferGeometry attach={GEOMETRY} args={size} />
       <meshBasicMaterial attach={MATERIAL} color={colour} />
     </mesh>
