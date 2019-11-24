@@ -13,7 +13,7 @@ export const MATERIAL = "material";
 
 export const ROTATION = {
   NORTH: "NORTH",
-  SOUTH: "SOUTH",
   EAST: "EAST",
+  SOUTH: "SOUTH",
   WEST: "WEST"
 };

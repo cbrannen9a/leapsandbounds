@@ -8,7 +8,8 @@ const Player = ({
   size = [1, 1, 1],
   colour = "blue",
   level,
-  selectedMove
+  selectedMove,
+  selectedMoveRotation
 }) => {
   const { player } = level;
   const [playerPosition, setPlayerPosition] = useState(
@@ -26,6 +27,7 @@ const Player = ({
           shape={level.moves[selectedMove].shape}
           x={playerPosition[0]}
           y={playerPosition[1]}
+          rotation={selectedMoveRotation}
         />
       )}
     </>
