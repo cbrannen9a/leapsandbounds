@@ -6,7 +6,6 @@ import Player from "../player";
 import useKeyPress from "../../hooks/useKeyPress";
 import useMultiKeyPress from "../../hooks/useMultiKeyPress";
 import { ROTATION } from "../../constants";
-import { ParsedError } from "pretty-error";
 
 const App = () => {
   const level = {
@@ -51,6 +50,7 @@ const App = () => {
 
   const [selectedMove, setSelectedMove] = useState(null);
   const [moveRotation, setMoveRotation] = useState(0);
+  const [attemptMove, setAttemptMove] = useState(null);
   const escapePressed = useKeyPress("Escape");
   const keysPressed = useMultiKeyPress();
 
@@ -74,6 +74,9 @@ const App = () => {
       if (keysPressed.has("1")) {
         setSelectedMove(0);
       }
+      if (keysPressed.has(" ")) {
+        setAttemptMove(true);
+      }
     }
     handleKeysPressed(keysPressed);
   }, [keysPressed]);
@@ -87,6 +90,8 @@ const App = () => {
           level={level}
           selectedMove={selectedMove}
           selectedMoveRotation={Object.keys(ROTATION)[moveRotation]}
+          setAttemptMove={setAttemptMove}
+          attemptMove={attemptMove}
         />
       </Canvas>
       <MovesContainer moves={level.moves} onClick={handleSelectedMove} />

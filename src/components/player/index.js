@@ -10,12 +10,19 @@ const Player = ({
   colour = PLAYER_BLUE,
   level,
   selectedMove,
-  selectedMoveRotation
+  selectedMoveRotation,
+  attemptMove,
+  setAttemptMove
 }) => {
   const { player } = level;
   const [playerPosition, setPlayerPosition] = useState(
     position || [player.startpoint.x, player.startpoint.y, 0.5]
   );
+
+  const handleMoved = ({ position }) => {
+    setPlayerPosition(position);
+    setAttemptMove(false);
+  };
 
   return (
     <>
@@ -32,6 +39,8 @@ const Player = ({
           rotation={selectedMoveRotation}
           layerSize={level.layers[0].size}
           selected
+          attemptMove={attemptMove}
+          handleMoved={handleMoved}
         />
       )}
     </>

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Block from "../block";
 import { TILE_SIZE, MOVE_POS_Z_OFFSET } from "../../constants";
-import { MoveHelper, isMoveValid } from "../../helpers/moveHelpers";
+import {
+  MoveHelper,
+  isMoveValid,
+  moveEndPositionHelper
+} from "../../helpers/moveHelpers";
 import {
   MOVE_START,
   MOVE_INVALID_RED,
@@ -36,9 +40,12 @@ const Move = ({
   rotation = "",
   onClick,
   layerSize = 0,
-  selected
+  selected,
+  attemptMove,
+  handleMoved
 }) => {
   const isValid = selected && isMoveValid({ end, x, y, rotation, layerSize });
+  const moveEnd = moveEndPositionHelper({ end, x, y, rotation });
   const getColour = ({ index, isValid, selected }) => {
     if (index === 0) {
       return MOVE_START;
@@ -48,6 +55,16 @@ const Move = ({
     }
     return MOVE_GREEN;
   };
+
+  useEffect(() => {
+    function handleMakeMove() {
+      if (isValid && attemptMove) {
+        handleMoved({ position: [moveEnd.x, moveEnd.y, 0] });
+      }
+    }
+    handleMakeMove();
+  }, [attemptMove, isValid]);
+
   return (
     <>
       {shape.length > 0

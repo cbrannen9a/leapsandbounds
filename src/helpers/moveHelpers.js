@@ -32,11 +32,7 @@ export const MoveHelper = ({ shape, x, y, rotation }) => {
 };
 
 export const isMoveValid = ({ end, x, y, rotation, layerSize }) => {
-  const moveEndPosition = MoveItemPositionHelper({
-    item: MoveItemRotationHelper({ x: end.x, y: end.y, rotation }),
-    x,
-    y
-  });
+  const moveEndPosition = moveEndPositionHelper({ end, x, y, rotation });
   const size = layerSize / 2 - 1;
   if (
     Math.abs(moveEndPosition.x) > size ||
@@ -45,6 +41,16 @@ export const isMoveValid = ({ end, x, y, rotation, layerSize }) => {
     return false;
   }
   return true;
+};
+
+export const moveEndPositionHelper = ({ end, x, y, rotation }) => {
+  const i = MoveItemPositionHelper({
+    item: MoveItemRotationHelper({ x: end.x, y: end.y, rotation }),
+    x,
+    y
+  });
+  console.log({ i });
+  return i;
 };
 
 export const MoveItemPositionHelper = ({ item, x, y }) => {
