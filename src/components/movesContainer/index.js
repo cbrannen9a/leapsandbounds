@@ -2,6 +2,7 @@ import React from "react";
 import { Canvas } from "react-three-fiber";
 import styled from "styled-components";
 import Move from "../move";
+import Cross from "../cross";
 
 const MovesContainer = ({ moves, onClick }) => {
   return (
@@ -17,6 +18,11 @@ const MovesContainer = ({ moves, onClick }) => {
             />
           ))}
       </Canvas>
+      <BottomRight>
+        <Canvas>
+          <Cross onClick={() => onClick(null)} />
+        </Canvas>
+      </BottomRight>
     </Container>
   );
 };
@@ -27,6 +33,18 @@ const Container = styled.div`
   height: 100px;
   width: 100vw;
   background: black;
+
+  @media only screen and (max-width: 900px) {
+    height: 40px;
+  }
+`;
+
+const BottomRight = styled.div`
+  right: 0px;
+  bottom: 0px;
+  width: 50px;
+  position: absolute;
+  height: 100px;
 
   @media only screen and (max-width: 900px) {
     height: 40px;

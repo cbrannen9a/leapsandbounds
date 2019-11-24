@@ -7,7 +7,7 @@ const MoveTile = ({
   x = 0,
   y = 0,
   z,
-  size = TILE_SIZE,
+  size = TILE_SIZE - 0.01,
   height = 0.01,
   colour = "green",
   onClick
