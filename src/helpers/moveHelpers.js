@@ -1,12 +1,12 @@
 import { ROTATION } from "../constants";
 
-export const MoveRotationHelper = ({ shape, rotation }) => {
+export const moveRotationHelper = ({ shape, rotation }) => {
   switch (rotation) {
     case ROTATION.SOUTH:
     case ROTATION.WEST:
     case ROTATION.EAST:
       return shape.map(i => {
-        return MoveItemRotationHelper({ x: i.x, y: i.y, rotation });
+        return moveItemRotationHelper({ x: i.x, y: i.y, rotation });
       });
 
     default:
@@ -14,18 +14,18 @@ export const MoveRotationHelper = ({ shape, rotation }) => {
   }
 };
 
-export const MovePositionHelper = ({ shape, x, y }) => {
+export const movePositionHelper = ({ shape, x, y }) => {
   return [
     { x, y },
     ...shape.map(i => {
-      return MoveItemPositionHelper({ item: i, x, y });
+      return moveItemPositionHelper({ item: i, x, y });
     })
   ];
 };
 
-export const MoveHelper = ({ shape, x, y, rotation }) => {
-  return MovePositionHelper({
-    shape: MoveRotationHelper({ shape, rotation }),
+export const moveHelper = ({ shape, x, y, rotation }) => {
+  return movePositionHelper({
+    shape: moveRotationHelper({ shape, rotation }),
     x,
     y
   });
@@ -44,20 +44,19 @@ export const isMoveValid = ({ end, x, y, rotation, layerSize }) => {
 };
 
 export const moveEndPositionHelper = ({ end, x, y, rotation }) => {
-  const i = MoveItemPositionHelper({
-    item: MoveItemRotationHelper({ x: end.x, y: end.y, rotation }),
+  const i = moveItemPositionHelper({
+    item: moveItemRotationHelper({ x: end.x, y: end.y, rotation }),
     x,
     y
   });
-  console.log({ i });
   return i;
 };
 
-export const MoveItemPositionHelper = ({ item, x, y }) => {
+export const moveItemPositionHelper = ({ item, x, y }) => {
   return { x: item.x + x, y: item.y + y };
 };
 
-export const MoveItemRotationHelper = ({ x, y, rotation }) => {
+export const moveItemRotationHelper = ({ x, y, rotation }) => {
   switch (rotation) {
     case ROTATION.NORTH:
       return { x, y };

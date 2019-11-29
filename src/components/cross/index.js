@@ -1,7 +1,7 @@
 import React from "react";
 import Block from "../block";
 import { TILE_SIZE } from "../../constants";
-import { MovePositionHelper } from "../../helpers/moveHelpers";
+import { movePositionHelper } from "../../helpers/moveHelpers";
 import { CROSS_RED } from "../../constants/colours";
 
 const crossShape = [
@@ -33,7 +33,7 @@ const CrossTile = ({
 const Cross = ({ x = 0, y = 0, onClick }) => {
   return (
     <group position={[x, y, 0]} rotation={[0, 0, 0.8]}>
-      {MovePositionHelper({ shape: crossShape, x, y }).map((shapeitem, i) => (
+      {movePositionHelper({ shape: crossShape, x, y }).map((shapeitem, i) => (
         <CrossTile key={i} onClick={onClick} {...shapeitem} />
       ))}
     </group>

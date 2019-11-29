@@ -1,3 +1,3 @@
-export const EndpointPositionHelper = ({ endpoint, x, y }) => {
+export const endpointPositionHelper = ({ endpoint, x, y }) => {
   return { ...endpoint, x: x + endpoint.x, y: y + endpoint.y };
 };

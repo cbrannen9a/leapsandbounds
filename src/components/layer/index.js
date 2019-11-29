@@ -6,7 +6,7 @@ import Grid from "../grid";
 import { TILE_SIZE, GROUND_HEIGHT } from "../../constants";
 import Block from "../block";
 import Endpoint from "../endpoint";
-import { EndpointPositionHelper } from "../../helpers/layerHelpers";
+import { endpointPositionHelper } from "../../helpers/layerHelpers";
 
 const Layer = ({ layer }) => {
   const groundSize = layer.size * TILE_SIZE;
@@ -32,7 +32,7 @@ const Layer = ({ layer }) => {
         <Block {...block} />
       ))}
       <Endpoint
-        {...EndpointPositionHelper({
+        {...endpointPositionHelper({
           endpoint: layer.endpoint,
           x: layer.x,
           y: layer.y

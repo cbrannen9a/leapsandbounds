@@ -1,6 +1,6 @@
 export const TILE_SIZE = 1;
 export const TILE_SIZE_SPACER = 0.015;
-export const GROUND_POS_OFFSET = -0.5;
+export const GROUND_POS_OFFSET = 0.5;
 export const GROUND_HEIGHT = 0.04;
 export const ENDPOINT_Z_OFFSET = 0.45;
 export const TILE_POS_Z_OFFSET = -0.05;
